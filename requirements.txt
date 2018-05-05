@@ -1,0 +1,4 @@
+PyYAML == 3.12
+invoke == 1.0.0
+mysql-connector-python-rf == 2.2.2
+
