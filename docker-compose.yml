@@ -6,13 +6,7 @@ services:
             dockerfile: Dockerfile.app
         restart: "no"
         environment:
-            - PYTHONPATH=src/main/python
+            - PYTHONPATH=/app/src/main/python/:/app/src/test/python/
         volumes:
-            - "./VERSION:/app/VERSION"
-            - "./requirements.txt:/app/requirements.txt:ro"
-            - "./src:/app/src:ro"
-            - "./tasks.py:/app/tasks.py:ro"
-            - "./tasks:/app/tasks:ro"
-            - "./uwsgi.yml:/app/uwsgi.yml:ro"
-            - "./htmlcov:/app/htmlcov"
+            - "./app:/app"
 

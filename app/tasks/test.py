@@ -3,7 +3,7 @@ from invoke import task
 @task(name="unit", default=True)
 def run_unit_test(context):
     """単体テストを実行する."""
-    context.run("python -m unittest discover -s src/test/python -t .")
+    context.run("python -m unittest discover -s /app/src/test/python/myapp/ -t .")
 
 @task(name="coverage")
 def report_unit_test_coverage(context):
@@ -11,7 +11,7 @@ def report_unit_test_coverage(context):
 
     commands = """
         coverage erase
-        coverage run --omit */src/test/* src/test/python/test_application_version.py
+        coverage run --omit */src/test/* /app/src/test/python/myapp/utilities/test_application_version.py
         coverage report
         coverage html
     """.strip().split("\n")

@@ -1,3 +1,5 @@
 *.swp
-/htmlcov/
+__pycache__
+/app/htmlcov
+/app/.coverage
 

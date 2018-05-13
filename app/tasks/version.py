@@ -1,6 +1,6 @@
 from invoke import task
 
-from application_version import ApplicationVersion
+from myapp.utilities.application_version import ApplicationVersion
 
 VERSION_FILE_PATH = "./VERSION"
 

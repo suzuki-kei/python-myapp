@@ -1,6 +1,6 @@
 import unittest
 
-from application_version import ApplicationVersion
+from myapp.utilities.application_version import ApplicationVersion
 
 class ApplicationVersionTestCase(unittest.TestCase):
 

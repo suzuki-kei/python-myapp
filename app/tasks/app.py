@@ -5,5 +5,5 @@ def run(context):
     """
         アプリケーションを実行する.
     """
-    context.run("python src/main/python/application.py")
+    context.run("python /app/src/main/python/myapp/hello/main.py")
 
