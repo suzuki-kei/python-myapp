@@ -10,10 +10,10 @@ def report_unit_test_coverage(context):
     """単体テストのカバレッジをレポートする."""
 
     commands = """
-        python3-coverage erase
-        python3-coverage run --omit */src/test/* src/test/python/test_application_version.py
-        python3-coverage report
-        python3-coverage html
+        coverage erase
+        coverage run --omit */src/test/* src/test/python/test_application_version.py
+        coverage report
+        coverage html
     """.strip().split("\n")
 
     for command in commands:
