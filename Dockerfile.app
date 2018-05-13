@@ -7,8 +7,11 @@ COPY ./requirements.txt ./
 COPY ./src ./src
 COPY ./tasks ./tasks
 COPY ./tasks.py ./
+COPY ./uwsgi.yml ./
 
 RUN apt update \
     && apt install -y python3-coverage \
     && pip install -r requirements.txt
+
+EXPOSE 80
 

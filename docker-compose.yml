@@ -13,5 +13,6 @@ services:
             - "./src:/app/src:ro"
             - "./tasks.py:/app/tasks.py:ro"
             - "./tasks:/app/tasks:ro"
+            - "./uwsgi.yml:/app/uwsgi.yml:ro"
             - "./htmlcov:/app/htmlcov"
 
