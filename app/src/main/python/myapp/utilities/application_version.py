@@ -87,9 +87,7 @@ class ApplicationVersion(object):
         if not matched:
             raise ValueError("Invalid version string", version_string)
 
-        # TODO 次の書き方だと coverage.py で実行した時にエラーになる.
-        # return (int(matched[1]), int(matched[2]), int(matched[3]), matched[4])
-        return (int(matched.group(1)), int(matched.group(2)), int(matched.group(3)), matched.group(4))
+        return (int(matched[1]), int(matched[2]), int(matched[3]), matched[4])
 
     @classmethod
     def _build_version_string(self, major, minor, patch, suffix):
