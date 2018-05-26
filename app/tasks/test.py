@@ -13,7 +13,7 @@ def report_unit_test_coverage(context):
         coverage erase
         coverage run --omit */src/test/* /app/src/test/python/myapp/utilities/test_application_version.py
         coverage report
-        coverage html
+        coverage html --directory=./target/docs/coverage/
     """.strip().split("\n")
 
     for command in commands:
