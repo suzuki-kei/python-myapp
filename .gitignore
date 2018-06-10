@@ -1,5 +1,5 @@
 *.swp
 __pycache__
-/app/target
-/app/.coverage
+/target
+/.coverage
 

@@ -1,5 +1,5 @@
 uwsgi:
     protocol: http
     http-socket: 0.0.0.0:80
-    module: myapp.webapp.main
+    module: myapp.webapi.main
 

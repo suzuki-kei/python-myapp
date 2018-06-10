@@ -1,7 +1,8 @@
 FROM python:3.6.5
 
-WORKDIR /app
-COPY ./app ./
+COPY . ./opt/myapp/current
+
+WORKDIR /opt/myapp/current/
 
 RUN apt update \
     && pip install -r requirements.txt

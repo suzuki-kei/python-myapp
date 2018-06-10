@@ -6,7 +6,7 @@ services:
             dockerfile: Dockerfile.app
         restart: "no"
         environment:
-            - PYTHONPATH=/app/src/main/python/:/app/src/test/python/
+            - PYTHONPATH=/opt/myapp/current/src/main/:/opt/myapp/current/src/test/
         volumes:
-            - "./app:/app"
+            - ".:/opt/myapp/current"
 
