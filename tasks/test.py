@@ -1,14 +1,13 @@
-import os
-from unittest import TestLoader
-from unittest import TextTestRunner
-
 from coverage import Coverage
 from invoke import task
 
-@task(name="unit", default=True)
-def run_unit_tests(context):
+@task(name="unit", iterable=["files"], default=True)
+def run_unit_tests(context, files):
     """単体テストを実行する."""
-    context.run("python -m runner")
+    if files:
+        context.run("python -m unittest -v {}".format(" ".join(files)))
+    else:
+        context.run("python -m unittest discover -v -t . -s src/test")
 
 @task(name="coverage")
 def report_unit_test_coverage(context):
