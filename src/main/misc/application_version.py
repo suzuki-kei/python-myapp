@@ -1,5 +1,7 @@
 import re
+from lang.comparable import comparable
 
+@comparable
 class ApplicationVersion(object):
     """
         アプリケーションのバージョンを表すクラス.
@@ -129,25 +131,7 @@ class ApplicationVersion(object):
     def __repr__(self):
         return self.__class__._build_version_string(self._major, self._minor, self._patch, self._suffix)
 
-    def __eq__(self, other):
-        return self._compare(other) == 0
-
-    def __ne__(self, other):
-        return self._compare(other) != 0
-
-    def __lt__(self, other):
-        return self._compare(other) < 0
-
-    def __le__(self, other):
-        return self._compare(other) <= 0
-
-    def __gt__(self, other):
-        return self._compare(other) > 0
-
-    def __ge__(self, other):
-        return self._compare(other) >= 0
-
-    def _compare(self, other):
+    def compare(self, other):
         """
             他のインスタンスと順序を比較する.
 
@@ -160,6 +144,8 @@ class ApplicationVersion(object):
                      other と等しい場合は 0,
                      other より大きい場合は正数.
         """
+        if not isinstance(other, self.__class__):
+            return NotImplemented
         if self._major < other._major:
             return -1
         if self._major > other._major:
