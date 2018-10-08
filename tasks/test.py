@@ -1,4 +1,3 @@
-from coverage import Coverage
 from invoke import task
 
 @task(name="unit", iterable=["files"], default=True)
@@ -15,7 +14,7 @@ def report_unit_test_coverage(context):
 
     commands = """
         coverage erase
-        coverage run --branch --omit */src/test/* -m runner
+        coverage run --branch --omit */src/test/* -m unittest discover -t . -s src/test
         coverage report --include "*/src/main/*"
         coverage html --include "*/src/main/*" --directory=./target/docs/coverage/
     """.strip().split("\n")
