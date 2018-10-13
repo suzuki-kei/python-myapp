@@ -12,5 +12,5 @@ def run_webapi(context):
     """
         webapi を実行する.
     """
-    context.run("uwsgi --yaml uwsgi.yml")
+    context.run("uwsgi --yaml config/uwsgi.yml")
 
