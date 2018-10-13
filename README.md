@@ -9,7 +9,7 @@
     docker-compose run app invoke -l
 
     # hello アプリケーションを実行する.
-    docker-compose run -p 10080:80 app invoke run.hello
+    docker-compose run app invoke run.hello
 
     # webapi アプリケーションを実行する.
     docker-compose run -p 10080:80 app invoke run.webapi
