@@ -1,3 +1,5 @@
+from functools import reduce
+
 
 def flatten(*values):
     def generator(x):
@@ -7,4 +9,11 @@ def flatten(*values):
         else:
             yield x
     return list(generator(values))
+
+
+def frequencies(values):
+    def reducer(counts, value):
+        counts[value] = counts.get(value, 0) + 1
+        return counts
+    return reduce(reducer, values, {})
 

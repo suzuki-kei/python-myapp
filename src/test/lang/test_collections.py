@@ -1,6 +1,7 @@
 import unittest
 
 from lang.collections import flatten
+from lang.collections import frequencies
 
 class CollectionsTestCase(unittest.TestCase):
 
@@ -64,4 +65,15 @@ class CollectionsTestCase(unittest.TestCase):
         self.assertEqual(expected, flatten(values))
         self.assertEqual(expected, flatten([values]))
         self.assertEqual(expected, flatten([(values)]))
+
+    def test_frequencies(self):
+        self.assertDictEqual(
+            {},
+            frequencies([]))
+        self.assertDictEqual(
+            {"A": 1},
+            frequencies(["A"]))
+        self.assertDictEqual(
+            {"A": 1, "B": 2, "C": 1},
+            frequencies(["A", "B", "B", "C"]))
 
