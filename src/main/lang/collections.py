@@ -1,4 +1,5 @@
 from functools import reduce
+from itertools import zip_longest
 
 
 def flatten(*values):
@@ -16,4 +17,10 @@ def frequencies(values):
         counts[value] = counts.get(value, 0) + 1
         return counts
     return reduce(reducer, values, {})
+
+
+def chunked(values, size, padding=None):
+    if size < 1:
+        raise ValueError("Invalid size", size)
+    return zip_longest(*[iter(values)] * size, fillvalue=padding)
 

@@ -2,6 +2,7 @@ import unittest
 
 from lang.collections import flatten
 from lang.collections import frequencies
+from lang.collections import chunked
 
 class CollectionsTestCase(unittest.TestCase):
 
@@ -76,4 +77,28 @@ class CollectionsTestCase(unittest.TestCase):
         self.assertDictEqual(
             {"A": 1, "B": 2, "C": 1},
             frequencies(["A", "B", "B", "C"]))
+
+
+class ChunkedTestCase(unittest.TestCase):
+
+    def test_value_error_raised_when_invalid_size_passed(self):
+        with self.assertRaises(ValueError):
+            chunked([], -1)
+
+        with self.assertRaises(ValueError):
+            chunked([], 0)
+
+    def test_value_error_not_raised_when_valid_size_passed(self):
+        try:
+            chunked([], 1)
+        except ValueError:
+            self.fail()
+
+    def test_returns_iterable_but_not_list(self):
+        self.assertNotIsInstance(chunked([], 1), list)
+
+    def test(self):
+        self.assertEqual([], list(chunked([], 1)))
+        self.assertEqual([], list(chunked([], 2)))
+        self.assertEqual([], list(chunked([], 3)))
 
