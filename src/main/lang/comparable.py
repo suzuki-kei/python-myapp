@@ -1,4 +1,4 @@
-# coding: utf-8
+
 
 class Comparable(type):
     """
@@ -17,6 +17,7 @@ class Comparable(type):
         namespace["__le__"] = lambda self, other: self.compare(other) <= 0
         namespace["__gt__"] = lambda self, other: self.compare(other) > 0
         namespace["__ge__"] = lambda self, other: self.compare(other) >= 0
+
 
 def comparable(target="compare"):
     """
