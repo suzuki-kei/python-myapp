@@ -4,6 +4,7 @@ from utils.collections import flatten
 from utils.collections import frequencies
 from utils.collections import chunked
 
+
 class CollectionsTestCase(unittest.TestCase):
 
     def test_flatten(self):
@@ -101,4 +102,8 @@ class ChunkedTestCase(unittest.TestCase):
         self.assertEqual([], list(chunked([], 1)))
         self.assertEqual([], list(chunked([], 2)))
         self.assertEqual([], list(chunked([], 3)))
+
+
+if __name__ == "__main__":
+    unittest.main()
 

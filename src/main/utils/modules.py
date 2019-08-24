@@ -5,7 +5,9 @@ from importlib import import_module
 
 from utils.files import generate_file_paths
 
+
 MODULE_FILE_PATH_PATTERN = re.compile(r"^([^/]+/)*[a-zA-Z0-9][a-zA-Z0-9_]*\.py$")
+
 
 def find_modules(scan_dir):
     file_paths = generate_file_paths(scan_dir)
@@ -20,6 +22,7 @@ def find_modules(scan_dir):
     module_names = map(to_module_name, file_paths)
 
     return module_names
+
 
 def import_modules(scan_dir):
     return list(map(import_module, find_modules(scan_dir)))

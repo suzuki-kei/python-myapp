@@ -2,6 +2,7 @@ import unittest
 
 from utils.modules import import_modules
 
+
 class ImportAllModulesTestCase(unittest.TestCase):
 
     def test(self):

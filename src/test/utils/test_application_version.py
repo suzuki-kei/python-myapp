@@ -2,6 +2,7 @@ import unittest
 
 from utils.application_version import ApplicationVersion
 
+
 class ApplicationVersionTestCase(unittest.TestCase):
 
     def test_constructor(self):
@@ -194,6 +195,7 @@ class ApplicationVersionTestCase(unittest.TestCase):
         self.assertEqual(True, ApplicationVersion(1, 2, 3, "SNAPSHOT") >= ApplicationVersion(1, 2, 3, "SNAPSHOT"))
         self.assertEqual(False, ApplicationVersion(1, 2, 3, "SNAPSHOT") >= ApplicationVersion(1, 2, 4, "SNAPSHOT"))
         self.assertEqual(True, ApplicationVersion(1, 2, 4, "SNAPSHOT") >= ApplicationVersion(1, 2, 3, "SNAPSHOT"))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -3,6 +3,7 @@ import unittest
 from utils.comparable import comparable
 from utils.comparable import Comparable
 
+
 class ComparableTestCase(unittest.TestCase):
 
     def test_metaclass_with_slots(self):
@@ -96,6 +97,7 @@ class ComparableTestCase(unittest.TestCase):
         self.assertEqual(True, comparable_class(0) <= comparable_class(1))
         self.assertEqual(True, comparable_class(1) <= comparable_class(1))
         self.assertEqual(False, comparable_class(2) <= comparable_class(1))
+
 
 if __name__ == "__main__":
     unittest.main()

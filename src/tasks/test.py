@@ -1,16 +1,22 @@
 from invoke import task
 
+
 @task(name="unit", iterable=["files"], default=True)
 def run_unit_tests(context, files):
-    """単体テストを実行する."""
+    """
+        単体テストを実行する.
+    """
     if files:
         context.run("python -m unittest -v {}".format(" ".join(files)))
     else:
         context.run("python -m unittest discover -v -t . -s src/test")
 
+
 @task(name="coverage")
 def report_unit_test_coverage(context):
-    """単体テストのカバレッジをレポートする."""
+    """
+        単体テストのカバレッジをレポートする.
+    """
 
     commands = """
         coverage erase

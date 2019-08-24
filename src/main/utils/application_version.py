@@ -4,14 +4,15 @@ from utils.comparable import comparable
 @comparable
 class ApplicationVersion(object):
     """
-        アプリケーションのバージョンを表すクラス.
+        アプリケーションのバージョン.
 
-        バージョンは以下の形式であることを前提とする.
+        バージョンは以下のいずれかの形式であることを前提とする.
 
             * <major>.<minor>.<patch> (Ex. "1.2.3")
             * <major>.<minor>.<patch>-<suffix> (Ex. "1.2.3-SNAPSHOT")
 
-        使用例:
+        Examples
+        --------
 
             # インスタンスの生成.
             version = ApplicationVersion(1, 2, 3)
@@ -43,12 +44,15 @@ class ApplicationVersion(object):
         """
             バージョン文字列が保存されたファイルからインスタンスを生成する.
 
-            Args:
-                file_path (str):
-                    バージョン文字列が保存されたファイルのパス.
+            Arguments
+            ---------
+            file_path : str
+                バージョン文字列が保存されたファイルのパス.
 
-            Returns:
-                ApplicationVersion: 新しく生成したインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                新しく生成したインスタンス.
         """
         with open(file_path, "r") as file:
             version_string = file.read().strip()
@@ -59,13 +63,16 @@ class ApplicationVersion(object):
         """
             バージョン文字列からインスタンスを生成する.
 
-            Args:
-                version_string (str):
-                    バージョン文字列.
-                    Ex. "1.2.3-SNAPSHOT".
+            Arguments
+            ---------
+            version_string : str
+                バージョン文字列.
+                Ex. "1.2.3-SNAPSHOT".
 
-            Returns:
-                ApplicationVersion: 新しく生成したインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                新しく生成したインスタンス.
         """
         versions = self._parse_version_string(version_string)
         return self(*versions)
@@ -75,15 +82,17 @@ class ApplicationVersion(object):
         """
             バージョン文字列をパースする.
 
-            Args:
-                version_string (str):
-                    バージョン文字列.
-                    Ex. "1.2.3-SNAPSHOT".
+            Arguments
+            ---------
+            version_string : str
+                バージョン文字列.
+                Ex. "1.2.3-SNAPSHOT".
 
-            Returns:
-                tuple(int, int, int, str|None):
-                    メジャーバージョン, マイナーバージョン,
-                    パッチバージョン, サフィックスを含む tuple.
+            Returns
+            -------
+            tuple(int, int, int, str|None)
+                メジャーバージョン, マイナーバージョン,
+                パッチバージョン, サフィックスを含む tuple.
         """
         matched = self.VERSION_STRING_PATTERN.match(version_string)
         if not matched:
@@ -96,11 +105,16 @@ class ApplicationVersion(object):
         """
             バージョン文字列を構築する.
 
-            Args:
-                major (int): メジャーバージョン.
-                minor (int): マイナーバージョン.
-                patch (int): パッチバージョン.
-                suffix (str|None): バージョンサフィックス.
+            Arguments
+            ---------
+            major : int
+                メジャーバージョン.
+            minor : int
+                マイナーバージョン.
+            patch : int
+                パッチバージョン.
+            suffix : str|None
+                バージョンサフィックス.
 
             Returns:
                 str: 引数から構築したバージョン文字列.
@@ -114,14 +128,21 @@ class ApplicationVersion(object):
         """
             インスタンスを初期化する.
 
-            Args:
-                major (int): メジャーバージョン.
-                minor (int): マイナーバージョン.
-                patch (int): パッチバージョン.
-                suffix (str|None): バージョンサフィックス.
+            Arguments
+            ---------
+            major : int
+                メジャーバージョン.
+            minor : int
+                マイナーバージョン.
+            patch : int
+                パッチバージョン.
+            suffix : str|None
+                バージョンサフィックス.
 
-            Returns:
-                ApplicationVersion: 初期化済みインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                初期化済みインスタンス.
         """
         self._major = major
         self._minor = minor
@@ -135,14 +156,17 @@ class ApplicationVersion(object):
         """
             他のインスタンスと順序を比較する.
 
-            Args:
-                other (ApplicationVersion):
-                    比較対象のインスタンス.
+            Arguments
+            ---------
+            other : ApplicationVersion
+                比較対象のインスタンス.
 
-            Returns:
-                int: other より小さい場合は負数,
-                     other と等しい場合は 0,
-                     other より大きい場合は正数.
+            Returns
+            -------
+            int
+                other より小さい場合は負数.
+                other と等しい場合は 0.
+                other より大きい場合は正数.
         """
         if not isinstance(other, self.__class__):
             return NotImplemented
@@ -175,8 +199,10 @@ class ApplicationVersion(object):
         """
             メジャーバージョンを返す.
 
-            Returns:
-                int: メジャーバージョン.
+            Returns
+            -------
+            int
+                メジャーバージョン.
         """
         return self._major
 
@@ -185,8 +211,10 @@ class ApplicationVersion(object):
         """
             マイナーバージョンを返す.
 
-            Returns:
-                int: マイナーバージョン.
+            Returns
+            -------
+            int
+                マイナーバージョン.
         """
         return self._minor
 
@@ -195,8 +223,10 @@ class ApplicationVersion(object):
         """
             パッチバージョンを返す.
 
-            Returns:
-                int: パッチバージョン.
+            Returns
+            -------
+            int
+                パッチバージョン.
         """
         return self._patch
 
@@ -205,8 +235,10 @@ class ApplicationVersion(object):
         """
             バージョンサフィックスを返す.
 
-            Returns:
-                str: バージョンサフィックス.
+            Returns
+            -------
+            str
+                バージョンサフィックス.
         """
         return self._suffix
 
@@ -214,8 +246,10 @@ class ApplicationVersion(object):
         """
             メジャーバージョンを上げる.
 
-            Returns:
-                ApplicationVersion: 新しいバージョンを表すインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                新しいバージョンを表すインスタンス.
         """
         return self.__class__(self._major + 1, 0, 0, self._suffix)
 
@@ -223,8 +257,10 @@ class ApplicationVersion(object):
         """
             マイナーバージョンを上げる.
 
-            Returns:
-                ApplicationVersion: 新しいバージョンを表すインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                新しいバージョンを表すインスタンス.
         """
         return self.__class__(self._major, self._minor + 1, 0, self._suffix)
 
@@ -232,8 +268,10 @@ class ApplicationVersion(object):
         """
             パッチバージョンを上げる.
 
-            Returns:
-                ApplicationVersion: 新しいバージョンを表すインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                新しいバージョンを表すインスタンス.
         """
         return self.__class__(self._major, self._minor, self._patch + 1, self._suffix)
 
@@ -241,8 +279,10 @@ class ApplicationVersion(object):
         """
             バージョンサフィックスを変更する.
 
-            Returns:
-                ApplicationVersion: 新しいバージョンを表すインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                新しいバージョンを表すインスタンス.
         """
         return self.__class__(self._major, self._minor, self._patch, suffix)
 
@@ -250,8 +290,10 @@ class ApplicationVersion(object):
         """
             リリースバージョンに変更する.
 
-            Returns:
-                ApplicationVersion: 新しいバージョンを表すインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                新しいバージョンを表すインスタンス.
         """
         return self.bump_suffix(None)
 
@@ -259,8 +301,10 @@ class ApplicationVersion(object):
         """
             スナップショットバージョンに変更する.
 
-            Returns:
-                ApplicationVersion: 新しいバージョンを表すインスタンス.
+            Returns
+            -------
+            ApplicationVersion
+                新しいバージョンを表すインスタンス.
         """
         return self.bump_suffix("SNAPSHOT")
 
@@ -268,8 +312,10 @@ class ApplicationVersion(object):
         """
             ファイルに保存する.
 
-            Args:
-                file_path (str): 保存先ファイルのパス.
+            Arguments
+            ---------
+            file_path : str
+                保存先ファイルのパス.
         """
         with open(file_path, "w") as file:
             file.write(str(self))
