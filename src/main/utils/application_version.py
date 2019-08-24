@@ -1,5 +1,5 @@
 import re
-from lang.comparable import comparable
+from utils.comparable import comparable
 
 @comparable
 class ApplicationVersion(object):

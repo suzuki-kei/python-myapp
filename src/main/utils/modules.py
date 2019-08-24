@@ -3,7 +3,7 @@ import re
 from functools import partial
 from importlib import import_module
 
-from lang.files import generate_file_paths
+from utils.files import generate_file_paths
 
 MODULE_FILE_PATH_PATTERN = re.compile(r"^([^/]+/)*[a-zA-Z0-9][a-zA-Z0-9_]*\.py$")
 

@@ -1,6 +1,6 @@
 import unittest
 
-from lang.modules import import_modules
+from utils.modules import import_modules
 
 class ImportAllModulesTestCase(unittest.TestCase):
 

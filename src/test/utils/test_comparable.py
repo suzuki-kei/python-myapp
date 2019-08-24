@@ -1,7 +1,7 @@
 import unittest
 
-from lang.comparable import comparable
-from lang.comparable import Comparable
+from utils.comparable import comparable
+from utils.comparable import Comparable
 
 class ComparableTestCase(unittest.TestCase):
 

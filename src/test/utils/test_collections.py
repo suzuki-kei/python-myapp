@@ -1,8 +1,8 @@
 import unittest
 
-from lang.collections import flatten
-from lang.collections import frequencies
-from lang.collections import chunked
+from utils.collections import flatten
+from utils.collections import frequencies
+from utils.collections import chunked
 
 class CollectionsTestCase(unittest.TestCase):
 
