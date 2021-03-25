@@ -1,4 +1,4 @@
-PyYAML == 5.1.1
+PyYAML == 5.4
 coverage == 4.5.3
 invoke == 1.2.0
 mysql-connector-python-rf == 2.2.2
