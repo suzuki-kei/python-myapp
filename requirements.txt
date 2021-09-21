@@ -1,5 +1,5 @@
 PyYAML == 5.4.1
-coverage == 4.5.3
+coverage == 5.5
 invoke == 1.2.0
 mysql-connector-python-rf == 2.2.2
 python-box == 3.4.2
