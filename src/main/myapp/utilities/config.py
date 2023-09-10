@@ -5,7 +5,7 @@ import box
 
 def _load_yaml_file(file_path):
     with open(file_path, "r") as file:
-        return yaml.load(file)
+        return yaml.safe_load(file)
 
 
 def load_config(file_path):
