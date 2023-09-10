@@ -1,4 +1,4 @@
-FROM python:3.10.0
+FROM python:3.11.5
 
 COPY . ./opt/myapp/current
 
