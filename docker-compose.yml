@@ -19,6 +19,7 @@ services:
         restart: "no"
         environment:
             - PYTHONPATH=/opt/myapp/current/src/main/:/opt/myapp/current/src/test/:/opt/myapp/current/src/tasks/
+            - PYTHONPYCACHEPREFIX=/opt/myapp/current/target/cache/__pycache__/
         links:
             - mysql:db
         volumes:
